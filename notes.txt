@@ -1,0 +1,10 @@
+==== composer ====
+
+composer init
+
+composer require larapack/dd
+
+composer install
+
+composer dumpautoload
+
