@@ -58,7 +58,5 @@ class Router
         }
 
         require_once ROOT . '/App/views/static/404View.php';
-
-
     }
 }

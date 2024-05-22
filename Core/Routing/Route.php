@@ -50,7 +50,11 @@ class Route
     }
 
     public function execute(): void {
+        if (class_exists($this->controllerClass)) {
+            $controller = new $this->controllerClass;
 
+            call_user_func_array([$controller, $this->actionMethod], $this->args);
+        }
     }
 
 }
