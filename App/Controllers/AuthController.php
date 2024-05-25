@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
 use Core\Tools;
 
 class AuthController
@@ -31,6 +32,14 @@ class AuthController
                 Tools::notify($error, 'red');
         else {
 
+            $user = User::findOne([
+                'email' => $data['email']
+            ]);
+
+
+
+
+            // User::create($data)->save();
 
 
 
