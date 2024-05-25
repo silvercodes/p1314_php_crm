@@ -24,20 +24,23 @@
                     <div class="card-title mb-4 text-center text-success">Registration</div>
 
                     <form action="/registration" method="post">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input name="username" type="text" class="form-control" id="username">
 
-                        <label for="pass" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" id="pass">
+                            <label for="email" class="form-label">Email address</label>
+                            <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 
-                        <label for="c_pass" class="form-label">Confirm password</label>
-                        <input name="c_password" type="password" class="form-control" id="c_pass">
+                            <label for="pass" class="form-label">Password</label>
+                            <input name="password" type="password" class="form-control" id="pass">
 
-                        <button class="btn btn-outline-primary mt-4" type="submit">Save</button>
-                    </div>
-                </form>
+                            <label for="c_pass" class="form-label">Confirm password</label>
+                            <input name="c_password" type="password" class="form-control" id="c_pass">
+
+                            <button class="btn btn-outline-primary mt-4" type="submit">Save</button>
+                        </div>
+                    </form>
 
                 </div>
             </div>
