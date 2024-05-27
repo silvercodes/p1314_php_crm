@@ -8,6 +8,13 @@ class User extends Model
 {
     protected string $table = 'users';
     protected array $fields = [
-        'id', 'email', 'pass'
+        'id', 'username', 'email', 'password', 'age'
+    ];
+    protected array $fillable = [
+        'username', 'email', 'password', 'age'
+    ];
+
+    protected array $required = [
+        'username', 'email', 'password'
     ];
 }

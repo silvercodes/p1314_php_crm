@@ -56,6 +56,5 @@ class Route
             call_user_func_array([$controller, $this->actionMethod], $this->args);
         }
     }
-
 }
 
