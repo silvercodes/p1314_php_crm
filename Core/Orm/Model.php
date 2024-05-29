@@ -49,6 +49,19 @@ abstract class Model
 
         DB::run($sql, array_intersect_key($this->data, array_flip($keys)));
     }
+    private function updateRow(): void
+    {
+        $data = array_intersect_key($this->data, array_flip($this->fillable));
+
+        $setters = array_map(fn($k) => "$k = :$k", array_keys($data));
+
+        $sql = "UPDATE $this->table SET "
+                . implode(', ', $setters)
+                . " WHERE $this->identity = "
+                . $this->data[$this->identity] . ';';
+
+        DB::run($sql, $data);
+    }
 
     public function __get(string $property): mixed
     {
@@ -57,16 +70,21 @@ abstract class Model
 
         return null;
     }
-
     public function __set(string $property, $value): void
     {
         $this->data[$property] = $value;
     }
 
+
     public function save()
     {
         $this->insertRow($this->data);
     }
+    public function update()
+    {
+        $this->updateRow();
+    }
+
 
     public static function findOne(array $conditions): ?Model {
         $modelClass = get_called_class();
