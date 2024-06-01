@@ -99,4 +99,10 @@ class AuthController
             header('Location: ' . HOME_PAGE);
         }
     }
+
+    public function logout()
+    {
+        CookieManager::clearCookie([COOKIE_TOKEN_KEY]);
+        header('Location: /login');
+    }
 }

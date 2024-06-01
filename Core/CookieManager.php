@@ -12,6 +12,12 @@ class CookieManager
         foreach ($cookie as $key => $val)
             setcookie($key, $val, time() + COOKIE_LIFE_TIME, '/');
     }
+    public static function clearCookie(array $cookieKeys): void
+    {
+        foreach ($cookieKeys as $key)
+            setcookie($key, '', 0);
+    }
+
     public static function checkAuth(): bool
     {
         if (! isset($_COOKIE[COOKIE_TOKEN_KEY]))
