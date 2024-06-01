@@ -2,11 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\Worker;
+
 class WorkerController
 {
     public function index()
     {
-        dd('workers index');
+        $workers = Worker::all();
+
+
     }
 
 }

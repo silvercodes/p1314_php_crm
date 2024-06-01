@@ -96,8 +96,6 @@ class AuthController
                 COOKIE_TOKEN_KEY => $user->token,
             ]);
 
-
-
             header('Location: ' . HOME_PAGE);
         }
     }

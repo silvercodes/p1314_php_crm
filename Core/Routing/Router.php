@@ -2,6 +2,7 @@
 
 namespace Core\Routing;
 
+use Core\CookieManager;
 use Exception;
 
 
@@ -51,6 +52,11 @@ class Router
                 array_shift($args);
 
                 $route->setArgs($args);
+
+                if ($route->isWithAuth() && ! CookieManager::checkAuth()) {
+                    header('Location: /login');
+                    return;
+                }
 
                 $route->execute();
                 return;

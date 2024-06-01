@@ -63,6 +63,7 @@ abstract class Model
         DB::run($sql, $data);
     }
 
+
     public function __get(string $property): mixed
     {
         if (array_key_exists($property, $this->data))
@@ -108,11 +109,24 @@ abstract class Model
 
         return $model;
     }
+    public static function all(): array
+    {
+        $modelClass = get_called_class();
+        $model = new $modelClass();
 
+        $dataArray = $model->getBy()->fetchAll();
 
+        return array_map(function($data) use($modelClass) {
+            $m = new $modelClass;
 
+            foreach ($m->fields as $property) {
+                if (array_key_exists($property, $data))
+                    $m->data[$property] = $data[$property];
+                else
+                    $m->data[$property] = null;
+            }
 
-
-
-
+            return $m;
+        }, $dataArray);
+    }
 }
