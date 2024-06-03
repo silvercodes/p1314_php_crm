@@ -20,6 +20,7 @@ class WorkerController
 
         require_once ROOT . '/App/views/layouts/MainLayoutView.php';
 
+
     }
 
 }
