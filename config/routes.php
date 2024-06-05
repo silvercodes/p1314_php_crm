@@ -13,3 +13,5 @@ Router::post('login', AuthController::class, 'login');
 Router::get('logout', AuthController::class, 'logout')->withAuth();
 
 Router::get('workers', WorkerController::class, 'index')->withAuth();
+
+Router::post('api/workers', WorkerController::class, 'create')->withAuth();

@@ -23,4 +23,13 @@ class WorkerController
 
     }
 
+    public function create()
+    {
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        Worker::create($data)->save();
+
+        http_response_code(201);
+    }
+
 }
