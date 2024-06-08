@@ -23,6 +23,17 @@ class WorkerController
 
     }
 
+    public function get(int $id) {
+        $worker = Worker::findOne(['id' => $id]);
+
+        if ($worker) {
+            header('Content-Type: application/json');
+            echo json_encode($worker);
+        } else {
+            http_response_code(404);
+        }
+    }
+
     public function create()
     {
         $data = json_decode(file_get_contents('php://input'), true);

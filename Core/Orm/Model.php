@@ -6,7 +6,7 @@ use Core\DB;
 use Exception;
 use PDOStatement;
 
-abstract class Model
+abstract class Model implements \JsonSerializable
 {
     protected string $table;
     protected string $identity = 'id';
@@ -76,6 +76,9 @@ abstract class Model
         $this->data[$property] = $value;
     }
 
+    public function jsonSerialize(): array {
+        return $this->data;     // TODO: hide???
+    }
 
     public function save()
     {

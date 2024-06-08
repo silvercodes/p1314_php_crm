@@ -48,7 +48,7 @@ class Router
 
         /**@var Route $route */
         foreach (self::$routes as $route) {
-            if ($route->getHttpMethod()->value === $method && preg_match("~{$route->getPattern()}~", $uri, $args)) {
+            if ($route->getHttpMethod()->value === $method && preg_match("~^{$route->getPattern()}~", $uri, $args)) {
                 array_shift($args);
 
                 $route->setArgs($args);

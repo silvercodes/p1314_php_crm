@@ -36,9 +36,9 @@
                         <td>Actions</td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbl_body_workers">
                     <?php foreach($workers as $worker): ?>
-                        <tr>
+                        <tr data-worker-id="<?= $worker->id ?>">
                             <td><?= $worker->first_name ?></td>
                             <td><?= $worker->last_name ?></td>
                             <td><?= $worker->phone ?></td>
@@ -51,10 +51,10 @@
                             </td>
                             <td><?= $worker->salary ?></td>
                             <td>
-                                <button class="btn btn-warning btn-sm">
+                                <button class="btn btn-warning btn-sm" data-action="edit">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
-                                <button class="btn btn-danger btn-sm">
+                                <button class="btn btn-danger btn-sm" data-action="delete">
                                     <i class="bi bi-trash-fill"></i>
                                 </button>
                             </td>
@@ -107,6 +107,20 @@
             </div>
         </div>
     </div>
+
+    <!--    toast-->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast" id="created_toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">SUCCESS</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Worker created successfully
+            </div>
+        </div>
+    </div>
+
 
 </div>
 
